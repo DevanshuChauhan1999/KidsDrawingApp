@@ -20,7 +20,7 @@ class DrawingView(context: Context,attrs:AttributeSet): View(context,attrs) {
         0.toFloat() // A variable for stroke/brush size to draw on the canvas.
 
     // A variable to hold a color of the stroke.
-    private var color = Color.BLACK
+    private var color = Color.RED
 
     /**
      * A variable for canvas which will be initialized later and used.
@@ -33,11 +33,24 @@ class DrawingView(context: Context,attrs:AttributeSet): View(context,attrs) {
     private var canvas: Canvas? = null
 
     private val mPaths = ArrayList<CustomPath>() // ArrayList for Paths
-
+    private val mUndoPaths = ArrayList<CustomPath>()
+    private val mRedoPaths = ArrayList<CustomPath>()
     init {
         setUpDrawing()
     }
+    fun OnclickUndo(){
+        if (mPaths.size>0){
+            mUndoPaths.add(mPaths.removeAt(mPaths.size - 1))
+            invalidate()
+        }
+    }
 
+    fun OnclickRedo(){
+        if (mUndoPaths.size>0){
+            mPaths.add(mUndoPaths.removeAt(mUndoPaths.size - 1))
+            invalidate()
+        }
+    }
     /**
      * This method initializes the attributes of the
      * ViewForDrawing class.
