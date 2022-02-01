@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/court"
+
             />
         <com.example.kidsdrawingapp.DrawingView
             android:id="@+id/drawing_view"
@@ -158,6 +158,14 @@
             android:layout_height="50dp"
             android:layout_margin="5dp"
             android:src="@drawable/ic_redo"
+            android:scaleType="fitXY"
+            />
+        <ImageButton
+            android:id="@+id/ib_save"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_save"
             android:scaleType="fitXY"
             />
 
